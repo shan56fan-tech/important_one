@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>For You ❤️</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Poppins:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- SCREEN 1: Intro -->
+        <div class="screen active" id="screen-1">
+            <div class="glowing-heart">💖</div>
+            <h1>Hey Cutiepie...</h1>
+            <p class="subtitle">I made something for you because I want to tell you something important</p>
+            <button class="btn" onclick="nextScreen(2)">Open it &rarr;</button>
+        </div>
+
+        <!-- SCREEN 2: Darkness to Stars -->
+        <div class="screen" id="screen-2" onclick="handleTapScreen2(event)">
+            <h1 id="screen2-title">Sometimes life gets a little dark...</h1>
+            <p class="subtitle" id="screen2-sub">Tap anywhere on the screen</p>
+
+            <div class="stars-container" id="stars-row"></div>
+
+            <button class="btn" id="screen2-btn" style="display: none;"
+                onclick="event.stopPropagation(); nextScreen(3);">Continue &rarr;</button>
+        </div>
+
+        <!-- SCREEN 3: Hold Button -->
+        <div class="screen" id="screen-3">
+            <h1>How important are you to me?</h1>
+            <p class="subtitle">Hold the button to find out</p>
+
+            <div class="progress-circle-wrapper">
+                <svg class="progress-svg" viewBox="0 0 200 200">
+                    <circle class="progress-bg" cx="100" cy="100" r="90" />
+                    <circle class="progress-bar" id="progress-bar" cx="100" cy="100" r="90" />
+                </svg>
+                <div class="inner-heart-box">
+                    <div class="inner-heart" id="hold-heart">❤️</div>
+                    <div class="percent-text" id="percent-text">0%</div>
+                </div>
+            </div>
+
+            <button class="btn btn-hold" id="hold-btn">Press and Hold</button>
+        </div>
+
+        <!-- SCREEN 4: Envelope -->
+        <div class="screen" id="screen-4">
+            <div class="envelope-card" onclick="openLetter()">
+                <div class="envelope-badge">❤️</div>
+                <div class="envelope-icon">✉️</div>
+                <p style="font-size: 0.95rem; color: #e1bee7;">Tap to open your letter</p>
+            </div>
+        </div>
+
+        <!-- SCREEN 5: Universe -->
+        <div class="screen" id="screen-5">
+            <div class="universe-heart">💖</div>
+            <h1 style="font-size: 2.2rem;">You are my universe</h1>
+            <p class="subtitle">You mean more to me than you know.</p>
+            <button class="btn" id="hug-btn" onclick="sendHug(event)">✈️ Send a hug</button>
+        </div>
+
+    </div>
+
+    <!-- LETTER MODAL (Triggered from Screen 4) -->
+    <div class="letter-modal" id="letter-modal">
+        <div class="letter-content">
+            <div class="letter-header">To my favorite person,</div>
+            <div class="letter-body">
+                I wanted to write this down because sometimes just saying it isn't enough. You need to know exactly how
+                important you are to me.<br><br>
+                Before you came along, things were fine. But with you? Everything is just brighter. Your laugh is my
+                favorite sound, and your presence is my absolute safest space.<br><br>
+                I know life gets crazy, but I see you. I see how hard you try , and how you give your fullest to
+                everything, be it work or anything else.
+                and how beautiful your soul genuinely is.
+                You are the heartbeat of my happiest days.
+            </div>
+            <div class="letter-footer">Yours entirely, always 💕</div>
+            <button class="btn" style="width: 100%; justify-content: center;" onclick="closeLetterAndAdvance()">One last
+                thing &rarr;</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
